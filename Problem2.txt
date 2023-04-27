@@ -1,0 +1,77 @@
+/*
+Problem 2 
+You are asked to write an algorithm that fulfill the following: 
+
+Name: Dot product
+Description:
+Write a procedure, called dot_product which calculates in the variable ps, the dot(scalar) product of v1 and v2 (v1 and v2 are vectors of IR)
+Write an algorithm which determines, for n pairs of given vectors, whether two vectors of given IR are orthogonal, by calling the procedure defined in the previous question. The dot product of two orthogonal vectors is zero.
+Modify the previous algorithm if you use a dot_product function instead of a procedure.
+*/
+
+1. Define a function `dot_product` that takes in two vectors `v1` and `v2`
+2. Initialize a variable `ps` to 0
+3. For each index `i` in the range of the length of `v1`, do step 4
+4.    Add the product of `v1[i]` and `v2[i]` to `ps`
+5. Return `ps`
+6. Define a list of `n` pairs of vectors `vector_pairs`
+7. For each pair `v_pair` in `vector_pairs`, do step 8
+8.    Calculate the dot product of `v_pair[0]` and `v_pair[1]` using the `dot_product` function, and store the result in `dp`
+9.    If `dp` is 0, print "The vectors are orthogonal"
+10.   Otherwise, print "The vectors are not orthogonal"
+
+
+PROCEDURE dot_product(v1, v2, ps)
+    BEGIN
+        FOR i FROM 0 TO v1.length-1 DO
+            ps := ps + (v1[i] * v2[i])
+        END_FOR
+    END
+    /*********************/
+    FUNCTION areOrthogonal(vectors)
+        FOR i FROM 0 TO vectors.length-2 DO
+            FOR j FROM i+1 TO vectors.length-1 DO
+                dotProd := 0
+                dot_product(vectors[i], vectors[j], dotProd)
+                IF (dotProd <> 0) THEN
+                    RETURN FALSE
+                END_IF
+            END_FOR
+        END_FOR
+        RETURN TRUE
+    END_FUNCTION
+
+
+PROCEDURE dot_product(v1, v2, ps)
+    BEGIN
+        FOR i FROM 0 TO v1.length-1 DO
+            ps := ps + (v1[i] * v2[i])
+        END_FOR
+    END
+    /*********************/
+    FUNCTION areOrthogonal(vectors)
+        FOR i FROM 0 TO vectors.length-2 DO
+            FOR j FROM i+1 TO vectors.length-1 DO
+                dotProd := 0
+                dot_product(vectors[i], vectors[j], dotProd)
+                IF (dotProd <> 0) THEN
+                    RETURN FALSE
+                END_IF
+            END_FOR
+        END_FOR
+        RETURN TRUE
+    END_FUNCTION
+
+
+/*
+Pass by value: In this method, a copy of the value of the parameter is passed to the function or procedure. Any changes made to the parameter inside the function or procedure do not affect the original value outside of the function or procedure.
+
+Pass by reference: In this method, the memory location of the parameter is passed to the function or procedure. Any changes made to the parameter inside the function or procedure affect the original value outside of the function or procedure.
+
+Pass by pointer: This is similar to pass by reference, but instead of passing the memory location of the parameter, a pointer to the memory location is passed.
+
+Pass by array: In this method, the entire array is passed to the function or procedure. Any changes made to the array inside the function or procedure affect the original array outside of the function or procedure.
+
+Pass by object: In object-oriented programming, objects can be passed as parameters. The object is passed by reference, meaning any changes made to the object inside the function or procedure affect the original object outside of the function or procedure.
+
+*/
